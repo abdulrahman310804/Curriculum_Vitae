@@ -1,577 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abdul Rahman | Portfolio</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portofolio Abdul Rahman, lulusan Pendidikan Teknologi Informasi dengan pengalaman administrasi digital, web, pendidikan, dan konten kreatif.">
+  <meta property="og:title" content="Abdul Rahman — Portofolio Profesional">
+  <meta property="og:description" content="Administrasi digital, teknologi, pendidikan, dan konten kreatif.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="abdul-rahman-profile.jpg">
+  <title>Abdul Rahman — Portofolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-  <style>
-    :root {
-      --cream:#FAF8F4; --ivory:#F2EDE5; --charcoal:#1A1A1A; --warm-dark:#2C2825;
-      --gold:#B8975A; --gold-light:#D4B483; --muted:#7A7168; --line:#E5DDD4;
-      --white:#FFFFFF; --card-bg:#FFFFFF;
-    }
-    [data-theme="dark"] {
-      --cream:#141210; --ivory:#1C1916; --charcoal:#F0EBE3; --warm-dark:#EDE8E2;
-      --gold:#C9A96E; --gold-light:#B8975A; --muted:#8A8178; --line:#2E2A26;
-      --white:#1E1B18; --card-bg:#1E1B18;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden;transition:background .4s,color .4s;}
-    a{text-decoration:none;color:inherit;}
-    ::-webkit-scrollbar{width:4px;}
-    ::-webkit-scrollbar-track{background:var(--cream);}
-    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
-
-    /* PROGRESS BAR */
-    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--warm-dark));z-index:9999;transition:width .1s linear;}
-
-    /* NAV */
-    nav{position:fixed;top:0;left:0;width:100%;z-index:500;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,244,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .4s,border-color .4s;}
-    [data-theme="dark"] nav{background:rgba(20,18,16,0.92);}
-    .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:.02em;color:var(--warm-dark);}
-    .logo span{color:var(--gold);}
-    .nav-links{display:flex;gap:36px;list-style:none;}
-    .nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;transition:color .3s;position:relative;}
-    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
-    .nav-links a:hover{color:var(--charcoal);}
-    .nav-links a:hover::after{width:100%;}
-    .nav-right{display:flex;align-items:center;gap:12px;}
-    #theme-toggle{width:38px;height:38px;border:1px solid var(--line);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;transition:all .3s;}
-    #theme-toggle:hover{border-color:var(--gold);color:var(--gold);}
-    .nav-cta{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 24px;border:1px solid var(--charcoal);color:var(--charcoal);font-weight:500;transition:all .3s;}
-    .nav-cta:hover{background:var(--charcoal);color:var(--cream);}
-
-    /* HERO */
-    header{min-height:100vh;display:flex;align-items:center;padding-top:72px;position:relative;overflow:hidden;}
-    .hero-bg-line{position:absolute;top:0;right:15%;width:1px;height:100%;background:var(--line);opacity:.8;}
-    .hero-bg-line2{position:absolute;top:0;right:38%;width:1px;height:100%;background:var(--line);opacity:.5;}
-    .hero-number{position:absolute;bottom:10%;left:5%;font-family:'Cormorant Garamond',serif;font-size:10rem;font-weight:300;color:var(--line);line-height:1;user-select:none;pointer-events:none;}
-
-    /* SCROLL INDICATOR */
-    .scroll-indicator{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;}
-    .scroll-indicator span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
-    .scroll-mouse{width:22px;height:34px;border:1px solid var(--muted);border-radius:11px;display:flex;justify-content:center;padding-top:6px;}
-    .scroll-dot{width:3px;height:6px;background:var(--gold);border-radius:2px;animation:scrollDot 1.6s ease infinite;}
-    @keyframes scrollDot{0%{transform:translateY(0);opacity:1}80%{transform:translateY(10px);opacity:0}100%{transform:translateY(0);opacity:0}}
-
-    .hero-inner{width:90%;max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;}
-    .hero-label{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:28px;}
-    .hero-label::before{content:'';width:30px;height:1px;background:var(--gold);}
-    .hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,7vw,6.5rem);font-weight:300;line-height:.95;color:var(--warm-dark);letter-spacing:-.02em;margin-bottom:32px;}
-    .hero-name em{font-style:italic;color:var(--gold);}
-    .hero-desc{font-size:.95rem;line-height:1.9;color:var(--muted);max-width:520px;margin-bottom:12px;font-weight:300;}
-    .typing-wrap{height:28px;margin-bottom:44px;}
-    .typing{font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--charcoal);font-weight:500;}
-    .typing::after{content:'|';color:var(--gold);animation:blink 1s infinite;}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-    .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
-
-    /* STAT COUNTERS */
-    .hero-stats{display:flex;gap:36px;margin-top:44px;padding-top:36px;border-top:1px solid var(--line);}
-    .stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--warm-dark);line-height:1;}
-    .stat-num span{color:var(--gold);}
-    .stat-label{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
-
-    /* BUTTONS */
-    .btn-primary{padding:14px 36px;background:var(--charcoal);color:var(--cream);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:all .3s;display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;}
-    .btn-primary:hover{background:var(--gold);transform:translateY(-2px);}
-    .btn-secondary{padding:14px 36px;border:1px solid var(--line);color:var(--muted);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:all .3s;display:inline-flex;align-items:center;gap:10px;}
-    .btn-secondary:hover{border-color:var(--charcoal);color:var(--charcoal);transform:translateY(-2px);}
-
-    /* HERO CARD */
-    .hero-card{background:var(--card-bg);border:1px solid var(--line);position:relative;transition:background .4s;}
-    .hero-card::before{content:'';position:absolute;inset:-6px;border:1px solid var(--gold-light);opacity:.3;pointer-events:none;}
-    .hero-card img{width:100%;height:380px;object-fit:cover;display:block;filter:grayscale(15%);}
-    .card-foot{padding:28px 28px 32px;border-top:1px solid var(--line);}
-    .card-foot-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;margin-bottom:4px;}
-    .card-foot-role{font-size:.78rem;color:var(--muted);letter-spacing:.08em;margin-bottom:20px;}
-    .pill-row{display:flex;flex-wrap:wrap;gap:8px;}
-    .pill{padding:5px 14px;border:1px solid var(--line);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;}
-
-    /* SECTIONS */
-    .section{padding:110px 0;}
-    .container{width:90%;max-width:1200px;margin:auto;}
-    .sec-label{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;}
-    .sec-label::before{content:'';width:24px;height:1px;background:var(--gold);}
-    .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.5rem);font-weight:300;color:var(--warm-dark);line-height:1.1;margin-bottom:60px;}
-    .sec-title em{font-style:italic;color:var(--gold);}
-    .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);}
-
-    /* ABOUT */
-    #about{background:var(--ivory);transition:background .4s;}
-    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;}
-    .about-text p{font-size:1rem;line-height:2;color:var(--muted);font-weight:300;margin-bottom:28px;}
-    .about-text p strong{color:var(--charcoal);font-weight:500;}
-    .quote-block{border-left:2px solid var(--gold);padding:20px 0 20px 28px;margin-top:10px;}
-    .quote-block p{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--warm-dark);line-height:1.6;}
-    .info-panel{background:var(--card-bg);border:1px solid var(--line);padding:40px;transition:background .4s;}
-    .info-row{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);}
-    .info-row:last-child{border-bottom:none;}
-    .info-key{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;}
-    .info-val{font-size:.88rem;color:var(--charcoal);font-weight:400;text-align:right;}
-
-    /* SKILLS */
-    #skills{background:var(--cream);transition:background .4s;}
-    .skills-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-    .skill-group-title{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:32px;padding-bottom:12px;border-bottom:1px solid var(--line);}
-    .skill-item{margin-bottom:28px;}
-    .skill-meta{display:flex;justify-content:space-between;margin-bottom:10px;}
-    .skill-name{font-size:.85rem;color:var(--charcoal);font-weight:500;}
-    .skill-pct{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);}
-    .bar-track{width:100%;height:2px;background:var(--line);position:relative;}
-    .bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--warm-dark));width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1);}
-
-    /* PROJECTS */
-    #projects{background:var(--ivory);transition:background .4s;}
-    .projects-list{display:flex;flex-direction:column;}
-    .proj-item{display:grid;grid-template-columns:80px 1fr auto;gap:0 36px;align-items:start;padding:40px 0;border-bottom:1px solid var(--line);transition:all .3s;}
-    .proj-item:first-child{border-top:1px solid var(--line);}
-    .proj-item:hover .proj-num{color:var(--gold);}
-    .proj-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--line);line-height:1;transition:color .3s;padding-top:4px;}
-    .proj-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--warm-dark);margin-bottom:10px;transition:color .3s;}
-    .proj-item:hover .proj-title{color:var(--gold);}
-    .proj-desc{font-size:.85rem;line-height:1.85;color:var(--muted);font-weight:300;max-width:660px;margin-bottom:16px;}
-    .proj-tags{display:flex;flex-wrap:wrap;gap:8px;}
-    .proj-tag{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:4px 12px;}
-    .proj-link{padding-top:8px;}
-    .proj-link a{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:6px;transition:gap .3s;white-space:nowrap;}
-    .proj-link a:hover{gap:12px;}
-
-    /* CONTACT */
-    #contact{background:var(--charcoal);transition:background .4s;}
-    #contact .sec-title{color:#FAF8F4;}
-    [data-theme="dark"] #contact{background:#0D0B09;}
-    .contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
-    .contact-info-list{display:flex;flex-direction:column;}
-    .c-item{display:flex;align-items:center;gap:20px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.08);}
-    .c-icon{width:44px;height:44px;border:1px solid rgba(184,151,90,.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.85rem;flex-shrink:0;}
-    .c-label{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
-    .c-val{font-size:.85rem;color:#FAF8F4;font-weight:300;}
-
-    /* CONTACT FORM */
-    .contact-form{display:flex;flex-direction:column;gap:16px;}
-    .form-field input,.form-field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:16px 20px;color:#FAF8F4;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:300;outline:none;transition:border-color .3s;}
-    .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(255,255,255,.25);font-size:.78rem;letter-spacing:.06em;}
-    .form-field input:focus,.form-field textarea:focus{border-color:var(--gold);}
-    .form-field textarea{height:130px;resize:none;}
-    .send-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}
-    .btn-send-wa{padding:14px 20px;background:#25D366;color:#fff;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .3s;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
-    .btn-send-wa:hover{background:#1ebe5d;transform:translateY(-2px);}
-    .btn-send-email{padding:14px 20px;background:var(--gold);color:#1A1A1A;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .3s;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
-    .btn-send-email:hover{background:var(--gold-light);transform:translateY(-2px);}
-    .form-note{font-size:.7rem;color:rgba(255,255,255,.3);letter-spacing:.06em;text-align:center;margin-top:4px;}
-
-    /* TOAST */
-    #toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);background:#2C2825;color:#FAF8F4;padding:14px 28px;font-size:.82rem;letter-spacing:.06em;border-left:3px solid var(--gold);z-index:9999;transition:transform .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap;}
-    #toast.show{transform:translateX(-50%) translateY(0);}
-
-    /* BACK TO TOP */
-    #back-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:var(--charcoal);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;border:none;opacity:0;transform:translateY(20px);transition:all .3s;z-index:400;}
-    #back-top.show{opacity:1;transform:translateY(0);}
-    #back-top:hover{background:var(--gold);}
-
-    /* FOOTER */
-    footer{background:#0D0B09;padding:28px 5%;display:flex;justify-content:space-between;align-items:center;}
-    footer p{font-size:.75rem;color:rgba(255,255,255,.3);letter-spacing:.08em;}
-    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);font-weight:600;}
-
-    /* REVEAL */
-    .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    .reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .8s ease,transform .8s ease;}
-    .reveal-left.visible{opacity:1;transform:translateX(0);}
-
-    /* RESPONSIVE */
-    @media(max-width:960px){
-      .hero-inner,.about-grid,.skills-wrapper,.contact-wrapper{grid-template-columns:1fr;}
-      .hero-name{font-size:3.5rem;}
-      .nav-links{display:none;}
-      .proj-item{grid-template-columns:60px 1fr;}
-      .proj-link{grid-column:2;padding-top:12px;}
-      .send-methods{grid-template-columns:1fr;}
-      .hero-stats{gap:24px;}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-
-  <div id="progress-bar"></div>
-  <div id="toast"></div>
-  <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Kembali ke atas">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- NAV -->
-  <nav>
-    <div class="logo">Abdul <span>Rahman</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">Tentang</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Kontak</a></li>
-    </ul>
-    <div class="nav-right">
-      <button id="theme-toggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon" id="theme-icon"></i>
-      </button>
-      <a href="#contact" class="nav-cta">Hubungi Saya</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header>
-    <div class="hero-bg-line"></div>
-    <div class="hero-bg-line2"></div>
-    <div class="hero-number">AR</div>
-
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-label">Curriculum Vitae</div>
-        <h1 class="hero-name">Abdul<br><em>Rahman</em></h1>
-        <p class="hero-desc">Mahasiswa Pendidikan Teknologi Informasi yang memadukan kemampuan akademis dengan kreativitas digital. Terampil dalam perancangan aset grafis, identitas visual merek, dan produksi konten video.</p>
-        <div class="typing-wrap"><span class="typing"></span></div>
-        <div class="hero-btns">
-          <a href="#projects" class="btn-primary"><i class="fas fa-layer-group"></i>Lihat Project</a>
-          <a href="#contact" class="btn-secondary"><i class="fas fa-paper-plane"></i>Kontak</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-num"><span class="counter" data-target="7">0</span><span>+</span></div>
-            <div class="stat-label">Projects</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num"><span class="counter" data-target="6">0</span><span>+</span></div>
-            <div class="stat-label">Bulan Mengajar</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num"><span class="counter" data-target="50">0</span><span>%</span></div>
-            <div class="stat-label">Efisiensi BRI</div>
-          </div>
-        </div>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a class="brand" href="#top" aria-label="Beranda">AR<span>.</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Buka menu</span><i></i><i></i><i></i></button>
+      <div class="nav-links" id="nav-links">
+        <a href="#tentang">Tentang</a><a href="#pengalaman">Pengalaman</a><a href="#proyek">Proyek</a><a href="#keahlian">Keahlian</a><a class="nav-cta" href="#kontak">Hubungi Saya</a>
       </div>
-
-      <div class="hero-card">
-        <img src="2x3.jpg" alt="Abdul Rahman"
-          onerror="this.style.height='280px';this.style.background='linear-gradient(135deg,#2C2825,#B8975A)';this.style.display='block';this.removeAttribute('src')">
-        <div class="card-foot">
-          <div class="card-foot-name">Abdul Rahman</div>
-          <div class="card-foot-role">IT Education Graduate · Lampung, Indonesia</div>
-          <div class="pill-row">
-            <span class="pill">Graphic Design</span>
-            <span class="pill">Branding</span>
-            <span class="pill">Video Editing</span>
-            <span class="pill">AI Tools</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="scroll-indicator">
-      <div class="scroll-mouse"><div class="scroll-dot"></div></div>
-      <span>Scroll</span>
-    </div>
+    </nav>
   </header>
 
-  <div class="divider"></div>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="sec-label reveal">Tentang Saya</div>
-      <h2 class="sec-title reveal">Profil <em>Singkat</em></h2>
-      <div class="about-grid">
-        <div class="reveal-left">
-          <div class="about-text">
-            <p>Saya adalah individu yang berdedikasi dalam menggabungkan aspek akademis <strong>teknologi informasi</strong> dengan keahlian multimedia kreatif. Saya memiliki minat kuat dalam riset pendidikan, desain visual, dan pemanfaatan alat digital terkini.</p>
-            <p>Pengalaman nyata di lapangan — mulai dari magang di Bank BRI, mengajar di sekolah, hingga mengelola produksi kreatif — membentuk saya menjadi individu yang adaptif, terstruktur, dan berorientasi pada hasil.</p>
-          </div>
-          <div class="quote-block">
-            <p>"Teknologi adalah jembatan; kreativitas adalah jiwa yang membuatnya berarti."</p>
-          </div>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Lulusan Pendidikan Teknologi Informasi</p>
+          <h1>Menghubungkan <span>teknologi</span>, administrasi, dan kreativitas.</h1>
+          <p class="hero-intro">Saya Abdul Rahman, lulusan S1 Pendidikan Teknologi Informasi Universitas Lampung dengan IPK 3,86. Saya berpengalaman dalam administrasi dan digitalisasi dokumen, pelayanan berbasis aplikasi, pendidikan, pengembangan website, serta produksi konten visual.</p>
+          <div class="actions"><a class="button primary" href="#proyek">Lihat Proyek Unggulan</a><a class="button secondary" href="cv-abdul-rahman.pdf" download>Unduh CV Terbaru</a></div>
+          <ul class="facts"><li><strong>3,86</strong><span>IPK</span></li><li><strong>7+</strong><span>Pengalaman kerja</span></li><li><strong>5</strong><span>Pencapaian utama</span></li></ul>
         </div>
-        <div class="info-panel reveal">
-          <div class="info-row"><span class="info-key">Nama</span><span class="info-val">Abdul Rahman</span></div>
-          <div class="info-row"><span class="info-key">Lokasi</span><span class="info-val">Lampung, Indonesia</span></div>
-          <div class="info-row"><span class="info-key">Email</span><span class="info-val">abdulrhn66@gmail.com</span></div>
-          <div class="info-row"><span class="info-key">Status</span><span class="info-val">Lulusan Pend. Teknologi Informasi</span></div>
-          <div class="info-row"><span class="info-key">Tersedia</span><span class="info-val" style="color:var(--gold);">Open to Opportunities</span></div>
+        <aside class="profile-card" aria-label="Profil Abdul Rahman">
+          <img src="abdul-rahman-profile.jpg" alt="Foto profesional Abdul Rahman" width="600" height="900">
+          <div class="profile-body"><p class="available"><b></b>Terbuka untuk peluang kerja</p><h2>Abdul Rahman</h2><p>Administrasi Digital · Teknologi · Konten Kreatif</p><div class="tags"><span>Web</span><span>Data</span><span>EdTech</span><span>Desain</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section white" id="tentang">
+      <div class="container two-col">
+        <div><p class="kicker">Tentang Saya</p><h2>Adaptif, teliti, dan berorientasi pada hasil.</h2></div>
+        <div class="body-copy"><p>Saya memiliki kemampuan mengoperasikan komputer, Microsoft Office, serta mengelola dan mendigitalisasi dokumen. Pengalaman di Bank Rakyat Indonesia membiasakan saya bekerja secara teliti, sistematis, dan bertanggung jawab.</p><p>Pengalaman di bidang pelayanan, pendidikan, organisasi, teknologi, dan produksi kreatif turut membentuk kemampuan komunikasi, kepemimpinan, adaptasi, kerja tim, serta pemecahan masalah. Saya siap terus belajar dan memberikan kontribusi terbaik bagi perusahaan.</p>
+          <div class="quick-info"><div><span>Lokasi</span><strong>Lampung Selatan, Lampung</strong></div><div><span>Pendidikan</span><strong>S1 PTI · IPK 3,86</strong></div><div><span>Minat posisi</span><strong>Administrasi, Staf IT, dan Konten</strong></div><div><span>Status</span><strong>Terbuka untuk peluang kerja</strong></div></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="divider"></div>
-
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="container">
-      <div class="sec-label reveal">Keahlian</div>
-      <h2 class="sec-title reveal">Skills & <em>Teknologi</em></h2>
-      <div class="skills-wrapper">
-        <div class="reveal">
-          <div class="skill-group-title">Development</div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">HTML</span><span class="skill-pct">90</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="90"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">CSS</span><span class="skill-pct">85</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">JavaScript</span><span class="skill-pct">75</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
-          </div>
-        </div>
-        <div class="reveal">
-          <div class="skill-group-title">Creative & Digital</div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">AI Tools</span><span class="skill-pct">88</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="88"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Video Editing</span><span class="skill-pct">80</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Branding</span><span class="skill-pct">75</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Graphic Design</span><span class="skill-pct">65</span></div>
-            <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
-          </div>
+    <section class="section dark" id="pengalaman">
+      <div class="container"><p class="kicker">Pengalaman</p><div class="heading-row"><h2>Pengalaman lintas bidang yang membentuk kemampuan saya.</h2><p>Setiap pengalaman memperkuat kemampuan administrasi, teknologi, komunikasi, dan pemecahan masalah.</p></div>
+        <div class="timeline">
+          <article><div class="meta"><span>November 2025 - Sekarang</span><strong>Shopee · Bandar Lampung</strong></div><div><h3>Mitra Pengemudi ShopeeFood</h3><p>Mengelola pesanan melalui aplikasi, menentukan rute pengiriman, menjaga komunikasi dengan pelanggan dan mitra merchant, serta memberikan layanan tepat waktu di bawah target kerja.</p></div></article>
+          <article><div class="meta"><span>Juni - Juli 2025</span><strong>PT Bank Rakyat Indonesia (Persero), Tbk.</strong></div><div><h3>Administrasi Kredit & Digitalisasi Dokumen</h3><p>Menyusun alur input data, penyimpanan, serta pencarian dokumen kredit secara digital. Mengembangkan website menggunakan HTML, CSS, JavaScript, dan Google Apps Script untuk membantu pencarian dokumen secara cepat dan akurat.</p></div></article>
+          <article><div class="meta"><span>Januari - Februari 2026</span><strong>Universitas Lampung</strong></div><div><h3>Asisten Penyusunan Buku Akademik</h3><p>Membantu pengolahan materi, penataan tata letak, serta integrasi gambar dan video edukatif dalam buku “Dasar Konservasi Sumber Daya Alam dan Lingkungan”.</p></div></article>
+          <article><div class="meta"><span>Januari - Februari 2025</span><strong>KKN Universitas Lampung · Desa Mahabang</strong></div><div><h3>Web Developer</h3><p>Mengembangkan portal informasi Desa Mahabang untuk membantu publikasi kegiatan dan menyediakan akses informasi desa secara lebih mudah bagi masyarakat.</p></div></article>
+          <article><div class="meta"><span>Juni - Agustus 2024</span><strong>AT Store · Bandar Lampung</strong></div><div><h3>Graphic Designer</h3><p>Mengedit dan menyesuaikan desain pelanggan, menyiapkan file produksi, mengatur tata letak cetak, serta memastikan desain siap untuk proses sablon.</p></div></article>
+          <article><div class="meta"><span>Januari - Juli 2024</span><strong>SMPN Satu Atap 1 Jati Agung</strong></div><div><h3>Guru · Kampus Mengajar Angkatan 7</h3><p>Mendukung proses belajar mengajar, mendampingi kegiatan akademik peserta didik, serta membantu literasi, numerasi, adaptasi teknologi, dan administrasi sekolah.</p></div></article>
+          <article><div class="meta"><span>Januari 2023 - Januari 2024</span><strong>Maxim · Lampung Selatan</strong></div><div><h3>Mitra Pengemudi</h3><p>Memberikan layanan transportasi yang aman dan tepat waktu, mengelola perjalanan melalui aplikasi, menentukan rute, serta menjaga profesionalisme dan kepuasan pelanggan.</p></div></article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="divider"></div>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="sec-label reveal">Portfolio</div>
-      <h2 class="sec-title reveal">Project <em>Saya</em></h2>
-      <div class="projects-list">
-
-        <div class="proj-item reveal">
-          <div class="proj-num">01</div>
-          <div class="proj-body">
-            <div class="proj-title">Digitalisasi Portal Informasi Desa Mahabang</div>
-            <p class="proj-desc">Pengembangan platform informasi desa berbasis CMS untuk meningkatkan transparansi publik dan aksesibilitas layanan bagi warga secara digital.</p>
-            <div class="proj-tags"><span class="proj-tag">WordPress</span><span class="proj-tag">CMS</span><span class="proj-tag">Digital Literacy</span></div>
-          </div>
-          <div class="proj-link"><a href="https://desamahabang.wordpress.com/" target="_blank">Lihat <i class="fas fa-arrow-right"></i></a></div>
+    <section class="section" id="proyek">
+      <div class="container"><p class="kicker">Proyek Pilihan</p><div class="heading-row"><h2>Bukti penerapan kemampuan dalam pekerjaan nyata.</h2><p>Proyek berikut mewakili kemampuan teknologi, administrasi, pendidikan, dan komunikasi visual.</p></div>
+        <div class="project-grid">
+          <article class="project featured"><span class="number">01</span><div><p class="type">Administrasi Digital · UI/UX</p><h3>DigiDoc Kredit Bank BRI</h3><p>Konsep antarmuka dan alur digitalisasi dokumen kredit untuk membantu penyimpanan data lebih terstruktur dan mempercepat pencarian dokumen.</p><div class="tags"><span>Data Management</span><span>Digital Transformation</span><span>UI Concept</span></div><a href="https://script.google.com/macros/s/AKfycbyq5U2-MiPnRcvE44I8fqRZp5s5favh-AehsLF_9Yn1JuyFwrYv8lmQUEJ37s_e7SAM/exec" target="_blank" rel="noopener noreferrer">Lihat demonstrasi ↗</a></div></article>
+          <article class="project"><span class="number">02</span><p class="type">WordPress · Informasi Publik</p><h3>Portal Informasi Desa Mahabang</h3><p>Mengembangkan dan menata portal informasi desa untuk mempermudah publikasi kegiatan serta akses informasi masyarakat.</p><div class="tags"><span>WordPress</span><span>CMS</span><span>Literasi Digital</span></div><a href="https://desamahabang.wordpress.com/" target="_blank" rel="noopener noreferrer">Kunjungi website ↗</a></article>
+          <article class="project"><span class="number">03</span><p class="type">EdTech · Web</p><h3>Portal Media Pembelajaran</h3><p>Portal digital sebagai pusat akses modul dan materi yang membantu mahasiswa memperoleh sumber belajar secara terorganisasi.</p><div class="tags"><span>EdTech</span><span>Instructional Design</span><span>Web</span></div><a href="https://abdulrahman310804.github.io/ProyekTI2026/" target="_blank" rel="noopener noreferrer">Kunjungi website ↗</a></article>
+          <article class="project"><span class="number">04</span><p class="type">Sistem Informasi · Pendidikan</p><h3>Sistem Rapor Digital</h3><p>Portal pengisian rapor digital untuk membantu pengelolaan nilai akademik di lingkungan sekolah.</p><div class="tags"><span>Academic Data</span><span>Administrasi Sekolah</span><span>EdTech</span></div><a href="https://abdulrahman310804.github.io/Raport_Kelompok1/" target="_blank" rel="noopener noreferrer">Kunjungi website ↗</a></article>
         </div>
-
-        <div class="proj-item reveal">
-          <div class="proj-num">02</div>
-          <div class="proj-body">
-            <div class="proj-title">Portfolio Website</div>
-            <p class="proj-desc">Membangun website portfolio modern dan responsive menggunakan HTML, CSS, dan JavaScript dengan tampilan clean dan profesional.</p>
-            <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
-          </div>
-          <div class="proj-link"></div>
-        </div>
-
-        <div class="proj-item reveal">
-          <div class="proj-num">03</div>
-          <div class="proj-body">
-            <div class="proj-title">Editor & Production Specialist — AT Store</div>
-            <p class="proj-desc">Bertanggung jawab dalam proses kreatif desain visual dan editing gambar untuk produk kaos sablon. Mengelola seluruh siklus produksi mulai pre-press hingga cetak.</p>
-            <div class="proj-tags"><span class="proj-tag">Graphic Design</span><span class="proj-tag">Image Editing</span><span class="proj-tag">Production</span></div>
-          </div>
-          <div class="proj-link"><a href="https://maps.app.goo.gl/atYSVutRQxRmyfmm8" target="_blank">Lihat <i class="fas fa-arrow-right"></i></a></div>
-        </div>
-
-        <div class="proj-item reveal">
-          <div class="proj-num">04</div>
-          <div class="proj-body">
-            <div class="proj-title">Asisten Dosen & Pengembang Media Pembelajaran</div>
-            <p class="proj-desc">Mendampingi mahasiswa dan merancang portal pembelajaran digital interaktif sebagai pusat distribusi modul dan materi perkuliahan.</p>
-            <div class="proj-tags"><span class="proj-tag">EdTech</span><span class="proj-tag">Instructional Design</span><span class="proj-tag">Digital Learning</span></div>
-          </div>
-          <div class="proj-link"><a href="https://abdulrahman310804.github.io/ProyekTI2026/" target="_blank">Lihat <i class="fas fa-arrow-right"></i></a></div>
-        </div>
-
-        <div class="proj-item reveal">
-          <div class="proj-num">05</div>
-          <div class="proj-body">
-            <div class="proj-title">Digital Administrative Intern — Bank BRI Teluk Betung</div>
-            <p class="proj-desc">Merancang UI DigiDoc Kredit dan melaksanakan digitalisasi dokumen penting yang mempercepat pencarian data debitur hingga 50%.</p>
-            <div class="proj-tags"><span class="proj-tag">Digital Transformation</span><span class="proj-tag">Data Management</span><span class="proj-tag">UI/UX Concept</span></div>
-          </div>
-          <div class="proj-link"><a href="https://script.google.com/macros/s/AKfycbyq5U2-MiPnRcvE44I8fqRZp5s5favh-AehsLF_9Yn1JuyFwrYv8lmQUEJ37s_e7SAM/exec" target="_blank">Lihat <i class="fas fa-arrow-right"></i></a></div>
-        </div>
-
-        <div class="proj-item reveal">
-          <div class="proj-num">06</div>
-          <div class="proj-body">
-            <div class="proj-title">Student Teacher — Kampus Mengajar 7</div>
-            <p class="proj-desc">Melaksanakan praktik mengajar selama 6 bulan di SMPN Satu Atap 1 Jatiagung, berfokus pada integrasi teknologi informasi dalam kurikulum sekolah.</p>
-            <div class="proj-tags"><span class="proj-tag">Education Technology</span><span class="proj-tag">Digital Literacy</span><span class="proj-tag">Public Speaking</span></div>
-          </div>
-          <div class="proj-link"><a href="https://www.instagram.com/km7smpnsatuatap1jatiagung?igsh=MWUyNnNzeTJvdmI2NA==" target="_blank">Lihat <i class="fas fa-arrow-right"></i></a></div>
-        </div>
-
-        <div class="proj-item reveal">
-          <div class="proj-num">07</div>
-          <div class="proj-body">
-            <div class="proj-title">Sistem Rapor Digital — SMPN 1 Bandar Lampung</div>
-            <p class="proj-desc">Merancang dan mengembangkan portal pengisian rapor digital untuk memodernisasi proses penilaian akademik di lingkungan SMPN 1 Bandar Lampung.</p>
-            <div class="proj-tags"><span class="proj-tag">School Administration</span><span class="proj-tag">Academic Data</span><span class="proj-tag">EdTech</span></div>
-          </div>
-          <div class="proj-link"><a href="https://abdulrahman310804.github.io/Raport_Kelompok1/" target="_blank">Lihat <i class="fas fa-arrow-right"></i></a></div>
-        </div>
-
+        <details class="more"><summary>Lihat proyek lainnya</summary><div><article><h3>Kampus Mengajar 7</h3><p>Integrasi teknologi dalam pembelajaran selama enam bulan.</p><a href="https://www.instagram.com/km7smpnsatuatap1jatiagung?igsh=MWUyNnNzeTJvdmI2NA==" target="_blank" rel="noopener noreferrer">Dokumentasi ↗</a></article><article><h3>Produksi Kreatif AT Store</h3><p>Desain visual, editing, dan proses produksi kaos sablon.</p><a href="https://maps.app.goo.gl/atYSVutRQxRmyfmm8" target="_blank" rel="noopener noreferrer">Lihat lokasi ↗</a></article><article><h3>Website Portofolio</h3><p>Portofolio responsif dengan HTML, CSS, dan JavaScript.</p><a href="https://github.com/abdulrahman310804/Curriculum_Vitae" target="_blank" rel="noopener noreferrer">Lihat kode ↗</a></article></div></details>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="divider"></div>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="sec-label reveal">Kontak</div>
-      <h2 class="sec-title reveal">Mari <em>Terhubung</em></h2>
-      <div class="contact-wrapper">
-        <div class="contact-info-list reveal-left">
-          <div class="c-item">
-            <div class="c-icon"><i class="fas fa-envelope"></i></div>
-            <div><div class="c-label">Email</div><div class="c-val">abdulrhn66@gmail.com</div></div>
-          </div>
-          <div class="c-item">
-            <div class="c-icon"><i class="fab fa-github"></i></div>
-            <div><div class="c-label">GitHub</div><div class="c-val">github.com/abdulrahman310804</div></div>
-          </div>
-          <div class="c-item">
-            <div class="c-icon"><i class="fab fa-linkedin"></i></div>
-            <div><div class="c-label">LinkedIn</div><div class="c-val">linkedin.com/in/abdul-rahman-19b333291</div></div>
-          </div>
-          <div class="c-item">
-            <div class="c-icon"><i class="fab fa-whatsapp"></i></div>
-            <div><div class="c-label">WhatsApp</div><div class="c-val">0853-7854-1993</div></div>
-          </div>
-        </div>
-
-        <div class="contact-form reveal">
-          <div class="form-field"><input type="text" id="f-name" placeholder="Nama Anda"></div>
-          <div class="form-field"><input type="email" id="f-email" placeholder="Alamat Email"></div>
-          <div class="form-field"><textarea id="f-msg" placeholder="Pesan Anda..."></textarea></div>
-          <div class="send-methods">
-            <button class="btn-send-wa" onclick="sendViaWhatsApp()">
-              <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
-            </button>
-            <button class="btn-send-email" onclick="sendViaEmail()">
-              <i class="fas fa-envelope"></i> Kirim via Email
-            </button>
-          </div>
-          <p class="form-note">Pesan langsung terkirim — tanpa server, tanpa data disimpan.</p>
-        </div>
+    <section class="section white" id="keahlian">
+      <div class="container"><p class="kicker">Keahlian</p><div class="heading-row"><h2>Perangkat dan kemampuan yang saya gunakan.</h2><p>Tingkat kemampuan disajikan secara deskriptif agar lebih mudah dinilai berdasarkan pekerjaan dan proyek.</p></div>
+        <div class="skill-grid"><article><span>Utama</span><h3>Administrasi & Data</h3><ul><li>Microsoft Excel dan Word</li><li>Data entry dan data management</li><li>Pengarsipan dokumen</li><li>Microsoft PowerPoint</li></ul></article><article><span>Teknis</span><h3>Web & Komputer</h3><ul><li>HTML, CSS, dan JavaScript</li><li>Google Apps Script</li><li>WordPress dan GitHub Pages</li><li>Computer skills</li></ul></article><article><span>Kreatif</span><h3>Desain & Konten</h3><ul><li>Graphic editing</li><li>Video editing</li><li>Canva</li><li>AI untuk produktivitas</li></ul></article><article><span>Profesional</span><h3>Komunikasi & Kerja Tim</h3><ul><li>Communication</li><li>Teamwork</li><li>Public speaking</li><li>Problem solving</li></ul></article></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">Abdul Rahman</div>
-    <p>© 2026 — IT Portfolio</p>
-    <p style="opacity:.5">Lampung, Indonesia</p>
-  </footer>
+    <section class="section achievements" id="pencapaian"><div class="container"><p class="kicker">Pencapaian</p><div class="heading-row"><h2>Pencapaian akademik, organisasi, dan pengembangan diri.</h2><p>Rekam jejak yang menunjukkan kepemimpinan, kemampuan komunikasi, dan komitmen belajar.</p></div><div class="achievement-grid">
+      <article><span>2026</span><h3>Skripsi Game Based Learning</h3><p>Meneliti penerapan Game Based Learning berbantuan Blooket terhadap hasil belajar kognitif siswa pada materi Jaringan Komputer dan Internet.</p></article>
+      <article><span>2025</span><h3>Artikel Diterima JCAR</h3><p>Menjadi salah satu penulis artikel “Efektivitas Model Game Based Learning dengan Media Blooket terhadap Hasil Belajar Siswa SMP”.</p></article>
+      <article><span>2024</span><h3>Ketua Pelaksana IMPRESSION</h3><p>Mengoordinasikan kepanitiaan dan pelaksanaan kompetisi mahasiswa bidang teknologi informasi tingkat Sumatra Bagian Selatan.</p></article>
+      <article><span>2024</span><h3>Pemateri AI dan Canva</h3><p>Menjadi pemateri In House Training pemanfaatan AI dan Canva sebagai media pembelajaran bagi guru selama 32 JP.</p></article>
+    </div></div></section>
 
-  <script>
-    /* TYPING */
-    const words=["AI Tools Specialist","Graphic Designer","Video Editor","Branding Enthusiast"];
-    let wi=0,j=0,del=false;
-    const tel=document.querySelector(".typing");
-    function type(){
-      const w=words[wi];
-      tel.textContent=w.substring(0,j);
-      if(!del&&j===w.length){del=true;setTimeout(type,1400);}
-      else if(del&&j===0){del=false;wi=(wi+1)%words.length;setTimeout(type,300);}
-      else{j+=del?-1:1;setTimeout(type,del?45:90);}
-    }
-    type();
+    <section class="section training white"><div class="container"><p class="kicker">Pelatihan & Sertifikasi</p><div class="heading-row"><h2>Kompetensi yang terus dikembangkan.</h2><p>Pelatihan relevan untuk mendukung pekerjaan administrasi, teknologi, dan konten digital.</p></div><div class="training-list">
+      <article><span>2026</span><div><h3>Komputerisasi Akuntansi (Excel)</h3><p>Bisa AI Academy</p></div></article>
+      <article><span>2026</span><div><h3>Pembuatan Website Lengkap dengan Prompting</h3><p>Bisa AI Academy</p></div></article>
+      <article><span>2026</span><div><h3>Basic Video Editing Mobile - CapCut</h3><p>BISA Design Academy</p></div></article>
+      <article><span>2025</span><div><h3>Coaching Clinic Penulisan Publikasi Internasional Bereputasi</h3><p>Program Studi Pendidikan Teknologi Informasi FKIP Universitas Lampung</p></div></article>
+      <article><span>2024</span><div><h3>Kewirausahaan Digital Dasar</h3><p>BPPTIK Cikarang</p></div></article>
+      <article><span>2026-2027</span><div><h3>Sertifikasi TOEFL</h3><p>Universitas Lampung</p></div></article>
+    </div></div></section>
 
-    /* SCROLL REVEAL + BARS */
-    const obs=new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          e.target.querySelectorAll('.bar-fill').forEach(b=>{b.style.width=b.dataset.width+'%';});
-        }
-      });
-    },{threshold:.12});
-    document.querySelectorAll('.reveal,.reveal-left').forEach(el=>obs.observe(el));
+    <section class="section education"><div class="container education-card"><div><p class="kicker">Pendidikan</p><h2>Universitas Lampung</h2></div><div><h3>S1 Pendidikan Teknologi Informasi</h3><p>Fakultas Keguruan dan Ilmu Pendidikan · 2022-2026</p><p class="gpa">IPK 3,86</p><p>Berfokus pada teknologi informasi, pengembangan media, pembelajaran digital, dan penerapan teknologi dalam pemecahan masalah.</p></div></div></section>
 
-    /* COUNTERS */
-    const cobs=new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          document.querySelectorAll('.counter').forEach(el=>{
-            const t=+el.dataset.target;let c=0;const s=t/40;
-            const iv=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(iv);}el.textContent=Math.floor(c);},30);
-          });
-          cobs.disconnect();
-        }
-      });
-    },{threshold:.5});
-    const st=document.querySelector('.hero-stats');
-    if(st)cobs.observe(st);
-
-    /* PROGRESS + BACK TO TOP */
-    window.addEventListener('scroll',()=>{
-      const d=document.documentElement;
-      document.getElementById('progress-bar').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
-      const bt=document.getElementById('back-top');
-      d.scrollTop>400?bt.classList.add('show'):bt.classList.remove('show');
-    });
-
-    /* DARK MODE */
-    let dark=false;
-    document.getElementById('theme-toggle').addEventListener('click',()=>{
-      dark=!dark;
-      document.documentElement.setAttribute('data-theme',dark?'dark':'');
-      document.getElementById('theme-icon').className=dark?'fas fa-sun':'fas fa-moon';
-    });
-
-    /* TOAST */
-    function showToast(msg){
-      const t=document.getElementById('toast');
-      t.textContent=msg;t.classList.add('show');
-      setTimeout(()=>t.classList.remove('show'),3500);
-    }
-
-    /* SEND VIA WHATSAPP */
-    function sendViaWhatsApp(){
-      const name=document.getElementById('f-name').value.trim();
-      const email=document.getElementById('f-email').value.trim();
-      const msg=document.getElementById('f-msg').value.trim();
-      if(!name||!msg){showToast('⚠ Isi nama dan pesan terlebih dahulu.');return;}
-      const text='Halo Abdul, saya *'+name+'*'+(email?' ('+email+')':'')+'.\n\n'+msg;
-      window.open('https://wa.me/6285378541993?text='+encodeURIComponent(text),'_blank');
-      showToast('✓ Membuka WhatsApp...');
-    }
-
-    /* SEND VIA EMAIL */
-    function sendViaEmail(){
-      const name=document.getElementById('f-name').value.trim();
-      const email=document.getElementById('f-email').value.trim();
-      const msg=document.getElementById('f-msg').value.trim();
-      if(!name||!msg){showToast('⚠ Isi nama dan pesan terlebih dahulu.');return;}
-      const sub='Pesan dari '+name+' — CV Portfolio';
-      const body='Nama: '+name+'\nEmail: '+(email||'-')+'\n\n'+msg;
-      window.location.href='mailto:abdulrhn66@gmail.com?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body);
-      showToast('✓ Membuka aplikasi email...');
-    }
-  </script>
+    <section class="section contact" id="kontak"><div class="container contact-grid"><div><p class="kicker">Kontak</p><h2>Mari membicarakan peluang untuk bekerja sama.</h2><p>Saya terbuka untuk posisi administrasi digital, staf IT, pengelolaan konten, serta pekerjaan yang menggabungkan teknologi dan komunikasi.</p></div><div class="contact-list"><a href="mailto:abdulrhn66@gmail.com"><span>Email</span><strong>abdulrhn66@gmail.com</strong><b>↗</b></a><a href="https://wa.me/6285378541993" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>0853-7854-1993</strong><b>↗</b></a><a href="https://www.linkedin.com/in/abdul-rahman-19b333291" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong>Abdul Rahman</strong><b>↗</b></a><a href="https://github.com/abdulrahman310804" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>abdulrahman310804</strong><b>↗</b></a></div></div></section>
+  </main>
+  <footer><div class="container footer-inner"><p><strong>Abdul Rahman</strong> — Portofolio</p><p>© <span id="year">2026</span> · Lampung, Indonesia</p></div></footer>
 </body>
 </html>
